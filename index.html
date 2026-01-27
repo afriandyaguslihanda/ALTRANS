@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AL TRANS PURWOREJO | Rental Mobil Profesional</title>
+
+<meta name="description" content="AL TRANS PURWOREJO adalah rental mobil terpercaya di Purworejo. Armada bersih, harga transparan, booking mudah via WhatsApp.">
+<meta name="keywords" content="Rental Mobil Purworejo, Sewa Mobil Purworejo, AL TRANS PURWOREJO">
+
+<style>
+:root{
+  --primary:#facc15;
+  --primary-dark:#eab308;
+  --bg:#fffbea;
+  --text:#0f172a;
+  --card:#ffffff;
+  --glass:rgba(255,255,255,.25);
+}
+
+body.dark{
+  --bg:#020617;
+  --text:#e5e7eb;
+  --card:#020617;
+  --glass:rgba(15,23,42,.7);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text)}
+
+#loader{
+  position:fixed;inset:0;z-index:999;
+  background:#020617;color:#facc15;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;letter-spacing:2px;
+}
+
+/* ===== NAVBAR ===== */
+.navbar{
+  position:fixed;top:0;width:100%;z-index:100;
+  background:rgba(2,6,23,.9);
+  backdrop-filter:blur(10px);
+  padding:12px 18px;
+  color:#fff;
+}
+
+.nav-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.nav-brand{
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+.rating{
+  font-size:14px;
+  color:#facc15;
+  margin-top:4px;
+}
+
+.nav-toggle{
+  background:#020617;
+  color:#facc15;
+  border:none;
+  padding:6px 10px;
+  border-radius:14px;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.nav-menu{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:10px;
+  list-style:none;
+}
+
+.nav-menu a{
+  text-decoration:none;
+  color:#fde68a;
+  font-weight:700;
+  padding:6px 10px;
+  border-radius:12px;
+  background:rgba(250,204,21,.15);
+}
+
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  padding:140px 20px 80px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+}
+
+.hero-box{
+  background:var(--glass);
+  backdrop-filter:blur(14px);
+  padding:46px 38px;
+  border-radius:30px;
+  max-width:700px;
+  animation:fadeUp 1s;
+}
+
+.logo{width:200px;margin-bottom:18px}
+
+.hero h1{font-size:38px;font-weight:900}
+.hero p{margin:14px 0 24px;font-size:18px}
+
+.cta{
+  background:#020617;
+  color:#facc15;
+  border:none;
+  padding:16px 34px;
+  border-radius:30px;
+  font-weight:900;
+  cursor:pointer;
+}
+
+.stats{
+  margin-top:36px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:18px;
+}
+
+.stat{
+  background:var(--card);
+  padding:22px;
+  border-radius:22px;
+  box-shadow:0 18px 40px rgba(0,0,0,.15);
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:90px 20px;
+}
+
+.alt{background:#fff7cc}
+body.dark .alt{background:#020617}
+
+h2{text-align:center;font-size:34px;margin-bottom:46px}
+
+/* ===== ARMADA ===== */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+}
+.gallery img{
+  width:100%;
+  border-radius:26px;
+  transition:.4s;
+  box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
+.gallery img:hover{transform:scale(1.08)}
+
+/* ===== HARGA ===== */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:26px;
+}
+.card{
+  background:var(--card);
+  padding:34px;
+  border-radius:26px;
+  box-shadow:0 22px 45px rgba(0,0,0,.14);
+  text-align:center;
+}
+.price{
+  font: size 20px;px;
+  font-weight:900;
+  color:var(--primary-dark);
+}
+
+/* ===== TESTIMONI ===== */
+.slider{text-align:center;max-width:700px;margin:auto}
+.slide{display:none;font-style:italic;font-size:18px}
+.slide.active{display:block;animation:fadeUp .8s}
+
+/* ===== MAP ===== */
+.map{
+  width:100%;
+  height:340px;
+  border-radius:26px;
+  border:;
+}
+
+/* ===== FLOATING WA ===== */
+.wa-float{
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  background:var(--primary);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  cursor:pointer;
+  z-index:200;
+  animation:pulse 2s infinite;
+}
+
+footer{
+  background:#020617;
+  color:#fde68a;
+  text-align:center;
+  padding:26px;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:none}
+}
+@keyframes pulse{50%{transform:scale(1.12)}}
+
+@media(min-width:769px){
+  .nav-menu{justify-content:flex-end}
+}
+</style>
+</head>
+
+<body>
+
+<div id="loader">AL TRANS</div>
+
+<nav class="navbar">
+  <div class="nav-top">
+    <div>
+      <div class="nav-brand">AL TRANS PURWOREJO</div>
+      <div class="rating">★★★★★ 4.9 (120+ Google Review)</div>
+    </div>
+    <button class="nav-toggle" id="darkToggle">🌙</button>
+  </div>
+
+  <ul class="nav-menu">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#armada">Armada</a></li>
+    <li><a href="#harga">Harga</a></li>
+    <li><a href="#" id="chatMenu">Chat</a></li>
+  </ul>
+</nav>
+<a href="https://wa.me/6281228541885?text=Halo%20AL%20TRANS%20PURWOREJO,%20saya%20ingin%20booking%20mobil"
+   target="_blank"
+   class="wa-btn">
+   💬 Chat Admin Sekarang
+</a>
+
+<section id="hero" class="hero">
+  <div class="hero-box">
+    <img src="bg/ALTRANS.png" class="logo">
+    <h1>RENTAL MOBIL PURWOREJO</h1>
+    <p>Armada Bersih • Driver Berpengalaman • Booking Mudah</p>
+    <button class="cta" id="waBtn">Chat Admin Sekarang</button>
+
+    <div class="stats">
+      <div class="stat"><h3>500+</h3><span>Perjalanan</span></div>
+      <div class="stat"><h3>100%</h3><span>Kepuasan</span></div>
+      <div class="stat"><h3>24/7</h3><span>WhatsApp</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="armada" class="container">
+  <h2>Armada Spesial</h2>
+  <div class="gallery">
+    <img src="bg/brio.jpg">
+    <img src="bg/xpander.jpg">
+    <img src="bg/innovaa.jpg">
+    <img src="bg/haice.jpg">
+  </div>
+</section>
+
+<section id="harga" class="container alt">
+  <h2>Lepas Kunci</h2>
+  <div class="cards">
+    <div class="card"><h3>Brio/Calya</h3><p class="price">Rp300K/24 Jam</p></div>
+    <div class="card"><h3>Xpander/Terios</h3><p class="price">Rp350K/24 Jam</p></div>
+    <div class="card"><h3>Innova Reborn</h3><p class="price">Rp550/Day</p></div>
+    <div class="card"><h3>Hiace</h3><p class="price">By Request</p></div>
+  </div>
+</section>
+
+<section class="container">
+  <h2>Testimoni</h2>
+  <div class="slider">
+    <div class="slide active">"Mobil bersih & nyaman." – Budi</div>
+    <div class="slide">"Admin fast respon, mantap!" – Sari</div>
+    <div class="slide">"Sangat direkomendasikan." – Bowo</div>
+    <div class="slide">"Harga Terjangkau, thx gan." – Hafiz</div>
+
+  </div>
+</section>
+
+<section class="container alt">
+  <h2>Lokasi Kami</h2>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d63259.893651204955!2d109.84608355820312!3d-7.7106646999999935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sal%20trans%20sewa%20mobil%20purworejo!5e0!3m2!1sen!2sid!4v1769536305747!5m2!1sen!2sid"
+   width="1000" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</section>
+
+<div class="wa-float" id="waFloat">💬</div>
+
+<footer>
+© 2026 AL TRANS PURWOREJO • Rental Mobil Profesional
+</footer>
+
+<script>
+const phone = "6281228541885";
+const waLink = `https://wa.me/6281228541885?text=Halo%20AL%20TRANS%20PURWOREJO,%20saya%20ingin%20booking%20mobil`;
+
+/* Loader */
+window.onload = ()=>document.getElementById("loader").style.display="none";
+
+/* WhatsApp */
+document.getElementById("waBtn").onclick =
+document.getElementById("waFloat").onclick =
+document.getElementById("chatMenu").onclick =
+()=>window.open(waLink,"_blank");
+
+/* Testimoni slider */
+let i=0,slides=document.querySelectorAll(".slide");
+setInterval(()=>{
+  slides[i].classList.remove("active");
+  i=(i+1)%slides.length;
+  slides[i].classList.add("active");
+},3500);
+
+/* Dark mode */
+const toggle=document.getElementById("darkToggle");
+if(localStorage.getItem("mode")==="dark"){
+  document.body.classList.add("dark");
+  toggle.innerHTML="☀️";
+}
+toggle.onclick=()=>{
+  document.body.classList.toggle("dark");
+  const dark=document.body.classList.contains("dark");
+  localStorage.setItem("mode",dark?"dark":"light");
+  toggle.innerHTML=dark?"☀️":"🌙";
+};
+</script>
+
+</body>
+</html>
