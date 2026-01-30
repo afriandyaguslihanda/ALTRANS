@@ -200,18 +200,54 @@ h2{text-align:center;font-size:34px;margin-bottom:46px}
   position:fixed;
   right:24px;
   bottom:24px;
-  width:64px;
-  height:64px;
+  width:66px;
+  height:66px;
   border-radius:50%;
-  background:var(--primary);
+  background:linear-gradient(145deg,#2ee675,#1fa855);
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:30px;
   cursor:pointer;
   z-index:200;
-  animation:pulse 2s infinite;
+
+  /* 3D depth */
+  box-shadow:
+    0 8px 18px rgba(0,0,0,.35),
+    inset 0 -4px 8px rgba(0,0,0,.25),
+    inset 0 4px 6px rgba(255,255,255,.35);
+
+  animation:waFloat 4s ease-in-out infinite;
+  transition:.35s cubic-bezier(.4,0,.2,1);
 }
+  @keyframes waFloat{
+  0%{
+    transform:translateY(0) rotateX(0) rotateY(0);
+  }
+  50%{
+    transform:translateY(-10px) rotateX(12deg) rotateY(-10deg);
+  }
+  100%{
+    transform:translateY(0) rotateX(0) rotateY(0);
+  }
+    .wa-float:hover{
+  transform:
+    translateY(-6px)
+    rotateX(18deg)
+    rotateY(-14deg)
+    scale(1.12);
+  box-shadow:
+    0 18px 40px rgba(0,0,0,.45),
+    inset 0 -6px 10px rgba(0,0,0,.35),
+    inset 0 6px 8px rgba(255,255,255,.4);
+.wa-float svg{
+  animation:iconPulse 2s infinite;
+}
+
+@keyframes iconPulse{
+  50%{transform:scale(1.1)}
+
+}
+
 
 footer{
   background:#020617;
@@ -370,7 +406,13 @@ footer{
   </div>
 </section>
 
-<div class="wa-float" id="waFloat">💬</div>
+<div class="wa-float" id="waFloat">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="#fff">
+    <path d="M19.11 17.93c-.28-.14-1.64-.81-1.89-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.09-.16.18-.32.21-.6.07-.28-.14-1.18-.43-2.25-1.38-.83-.74-1.39-1.66-1.55-1.94-.16-.28-.02-.43.12-.57.13-.13.28-.32.43-.48.14-.16.18-.28.28-.46.09-.18.05-.35-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.44-.46-.61-.46-.16 0-.35-.02-.53-.02s-.48.07-.73.35c-.25.28-.96.94-.96 2.29s.98 2.65 1.11 2.83c.14.18 1.93 2.95 4.68 4.13.66.28 1.18.45 1.58.58.66.21 1.26.18 1.73.11.53-.08 1.64-.67 1.87-1.32.23-.65.23-1.21.16-1.32-.07-.11-.25-.18-.53-.32z"/>
+    <path d="M16.02 3C9.38 3 4 8.37 4 15c0 2.64.86 5.07 2.32 7.04L5 29l7.17-1.88A11.9 11.9 0 0016.02 27C22.66 27 28 21.63 28 15S22.66 3 16.02 3zm0 21.82c-2.05 0-4.05-.55-5.79-1.6l-.41-.25-4.25 1.12 1.13-4.14-.27-.43a9.8 9.8 0 01-1.51-5.29c0-5.4 4.41-9.8 9.82-9.8s9.82 4.4 9.82 9.8-4.41 9.79-9.82 9.79z"/>
+  </svg>
+</div>
+
 
 <footer>
 © 2026 AL TRANS PURWOREJO • Rental Mobil Profesional
