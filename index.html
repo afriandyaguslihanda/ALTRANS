@@ -451,6 +451,42 @@ toggle.onclick=()=>{
   localStorage.setItem("mode",dark?"dark":"light");
   toggle.innerHTML=dark?"☀️":"🌙";
 };
+  /* ===== PARALLAX FLOATING WHATSAPP ===== */
+const wa = document.getElementById("waFloat");
+
+/* Desktop: mouse */
+document.addEventListener("mousemove", e=>{
+  const x = (window.innerWidth / 2 - e.clientX) / 25;
+  const y = (window.innerHeight / 2 - e.clientY) / 25;
+
+  wa.style.transform = `
+    translateY(-6px)
+    rotateX(${y}deg)
+    rotateY(${x}deg)
+    scale(1.05)
+  `;
+});
+
+/* Reset saat mouse keluar */
+document.addEventListener("mouseleave", ()=>{
+  wa.style.transform = "";
+});
+
+/* Mobile: gyro */
+if (window.DeviceOrientationEvent) {
+  window.addEventListener("deviceorientation", e => {
+    const x = e.gamma / 6;
+    const y = e.beta / 10;
+
+    wa.style.transform = `
+      translateY(-6px)
+      rotateX(${y}deg)
+      rotateY(${x}deg)
+      scale(1.05)
+    `;
+  });
+}
+
 </script>
 
 </body>
